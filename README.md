@@ -9,8 +9,8 @@ Atomデバイスの使い方やサンプル
 上部メニューの「ファイル」から「環境設定」をクリックし、「追加のボードマネージャーのURL：」に以下を追加
 ```
 https://dl.espressif.com/dl/package_esp32_index.json
-
 ```
+
 2. ボード追加
 上部メニューの「ツール」から「ボード」-「ボードマネージャ...」をクリックし、`esp32 by Espressif Systems`をインストール
 
