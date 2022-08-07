@@ -7,8 +7,8 @@ Atomデバイスの使い方やサンプル
 ## おすすめの使い方
 上部メニューの「ファイル」から「環境設定」にある「スケッチブックの保存場所」のディレクトリにcloneすることで、それ以降「ファイル」-「スケッチブック」に本サンプルが表示されるようになります。
 ```
-cd <スケッチブックの保存場所>
-git clone git@github.com:wiccidu/mechatronics-m5-atom-sample.git
+$ cd <スケッチブックの保存場所>
+$ git clone git@github.com:wiccidu/mechatronics-m5-atom-sample.git
 ```
 ![image](https://user-images.githubusercontent.com/74119351/183296769-3933d25b-b98c-4778-a91c-7e5ec0bb6eaf.png)
 
