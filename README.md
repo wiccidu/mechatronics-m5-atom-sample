@@ -31,5 +31,6 @@ https://dl.espressif.com/dl/package_esp32_index.json
 
 ## サンプル
 - adc
-- led
+- led_for_lite
+- led_for_matrix
 - usb_serial

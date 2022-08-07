@@ -1,4 +1,4 @@
-#include "M5Atom.h"
+#include <M5Atom.h>
 
 const int AD_INPUT = 33;
 
