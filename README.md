@@ -5,6 +5,8 @@ Atomデバイスの使い方やサンプル
 - Atom Echo
 
 ## Arduino IDE 初期設定
+https://www.arduino.cc/en/software からArduino IDEをインストールした後のAtomシリーズを使うための初期設定手順
+
 1. ボードマネージャのURL追加
 上部メニューの「ファイル」から「環境設定」をクリックし、「追加のボードマネージャーのURL：」に以下を追加
 ```
