@@ -20,6 +20,7 @@ https://dl.espressif.com/dl/package_esp32_index.json
 ## Arduino IDE ボードおよびアップロードボーレート設定
 - ボード："ESP32 Pico Kit"
 - upload speed："115200"
+![image](https://user-images.githubusercontent.com/74119351/183291142-f84b3356-4e6a-4540-8440-052f2b396c9b.png)
 
 ## サンプル
 - adc
