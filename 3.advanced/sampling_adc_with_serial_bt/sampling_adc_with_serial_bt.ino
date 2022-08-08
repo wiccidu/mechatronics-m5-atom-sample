@@ -9,7 +9,7 @@
 #define YELLOW  5
 #define WHITE   6
 
-const int SAMPLING_FREQ = 100; //[Hz]
+const int SAMPLING_FREQ = 200; //[Hz]
 const int BASE_DELAY = 1000000/SAMPLING_FREQ; //[usec]
 const int AD_INPUT = 33;
 
