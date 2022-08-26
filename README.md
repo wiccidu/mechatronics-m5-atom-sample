@@ -12,6 +12,10 @@ $ git clone git@github.com:wiccidu/mechatronics-m5-atom-sample.git
 ```
 ![image](https://user-images.githubusercontent.com/74119351/183296769-3933d25b-b98c-4778-a91c-7e5ec0bb6eaf.png)
 
+## サンプル
+- 1.basic: 基本的な機能のサンプル
+- 2.middle: basicのサンプルを組み合わせた実践的なサンプル
+- 3.advanced: 特定の回路/用途で利用できるサンプル
 
 ## Arduino IDE 初期設定
 https://www.arduino.cc/en/software からArduino IDEをインストールした後のAtomシリーズを使うための初期設定手順
@@ -39,9 +43,3 @@ https://dl.espressif.com/dl/package_esp32_index.json
 - upload speed："115200"
 
 ![image](https://user-images.githubusercontent.com/74119351/183291142-f84b3356-4e6a-4540-8440-052f2b396c9b.png)
-
-## サンプル
-- adc
-- led_for_lite
-- led_for_matrix
-- usb_serial
