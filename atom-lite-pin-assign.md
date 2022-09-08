@@ -25,7 +25,8 @@
 
 
 ### 内部回路図
-少し特殊なGPIO(通常は意識しない)
+
+ESP32-PICOとの接続について、通常は意識しないGPIOの詳細
 - GPIO39: トップについているユーザボタン
 - GPIO27: トップについているLED(Neo Pixel)
 - GPIO1,GPIO3: USB TypeC から接続されているSerial
