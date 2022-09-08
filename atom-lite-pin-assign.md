@@ -4,7 +4,7 @@
 
 公式より引用: http://docs.m5stack.com/en/core/atom_lite
 
-<img src="https://user-images.githubusercontent.com/74119351/189160834-7683f33b-a457-4d2a-86dd-bbf54db16e4c.png" width="600px;">
+<img src="https://user-images.githubusercontent.com/74119351/189160834-7683f33b-a457-4d2a-86dd-bbf54db16e4c.png" width="650px;">
 
 
 ### 関数別 機能一覧表
@@ -26,4 +26,4 @@
 
 ### 内部回路図
 
-<img src="https://user-images.githubusercontent.com/74119351/189166451-5370a70b-2647-4a07-8162-e3e6d5111b34.png" width="600px;">
+<img src="https://user-images.githubusercontent.com/74119351/189166451-5370a70b-2647-4a07-8162-e3e6d5111b34.png" width="650px;">
