@@ -25,5 +25,9 @@
 
 
 ### 内部回路図
-
+少し特殊なGPIO(通常は意識しない)
+- GPIO39: トップについているユーザボタン
+- GPIO27: トップについているLED(Neo Pixel)
+- GPIO1,GPIO3: USB TypeC から接続されているSerial
+- GPIO34: GPIO23(G23) から100Ωを介して接続されている
 <img src="https://user-images.githubusercontent.com/74119351/189166451-5370a70b-2647-4a07-8162-e3e6d5111b34.png" width="650px;">
