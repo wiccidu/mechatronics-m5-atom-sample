@@ -26,4 +26,4 @@
 
 ### 内部回路図
 
-<img src="(https://user-images.githubusercontent.com/74119351/189166451-5370a70b-2647-4a07-8162-e3e6d5111b34.png" width="600px;">
+<img src="https://user-images.githubusercontent.com/74119351/189166451-5370a70b-2647-4a07-8162-e3e6d5111b34.png" width="600px;">
