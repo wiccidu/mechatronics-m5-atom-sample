@@ -13,6 +13,8 @@ const int SAMPLING_FREQ = 200; //[Hz]
 const int BASE_DELAY = 1000000/SAMPLING_FREQ; //[usec]
 const int AD_INPUT = 33;
 
+bool sendFlag = true;
+
 BluetoothSerial SerialBT;
 
 void setup() {
@@ -24,20 +26,52 @@ void setup() {
 }
 
 void loop() {
-    long t = micros();
-    int i = analogRead(AD_INPUT);
-    SerialBT.println(i);
-    delayMicroseconds(BASE_DELAY-(micros()-t));
+    SerialCheck();
+    ButtonCheck();
+    if (sendFlag)
+    {
+        long t = micros();
+        int i = analogRead(AD_INPUT);
+        SerialBT.println(i);
+        delayMicroseconds(BASE_DELAY-(micros()-t));
+    }
+    updateLED();
     M5.update();
+}
+
+void SerialCheck(){
+    if(SerialBT.available() > 0) {
+        String data = SerialBT.readString();
+        SerialBT.println(data);
+        if (data == "start\n"){
+            sendFlag = true;
+        } else if (data == "end\n"){
+            sendFlag = false;
+        }
+    }
+}
+
+void ButtonCheck(){
+     if (M5.Btn.wasReleased()) {
+        sendFlag = !sendFlag;
+     }
+}
+
+void updateLED(){
+    if (sendFlag){
+        LED(BLUE);
+    } else {
+        LED(RED);
+    }
 }
 
 void LED(int c){
     switch (c) {
         case 0:
-            M5.dis.drawpix(0, 0x007000);
+            M5.dis.drawpix(0, 0x700000);
             break;
         case 1:
-            M5.dis.drawpix(0, 0x700000);
+            M5.dis.drawpix(0, 0x007000);
             break;
         case 2:
             M5.dis.drawpix(0, 0x000070);
