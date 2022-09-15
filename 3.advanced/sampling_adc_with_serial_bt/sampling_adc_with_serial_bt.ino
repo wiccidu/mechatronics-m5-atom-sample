@@ -9,6 +9,8 @@
 #define YELLOW  5
 #define WHITE   6
 
+const String BT_NAME = "AtomTestBoard";
+
 const int SAMPLING_FREQ = 200; //[Hz]
 const int BASE_DELAY = 1000000/SAMPLING_FREQ; //[usec]
 const int AD_INPUT = 33;
@@ -19,9 +21,9 @@ BluetoothSerial SerialBT;
 
 void setup() {
     M5.begin(true, false, true);
-    SerialBT.begin("ESP32");
+    SerialBT.begin(BT_NAME);
     delay(50);
-    SerialBT.println("Hello World");
+    SerialBT.println("Start SerialBT");
     LED(BLUE);
 }
 
