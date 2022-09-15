@@ -1,6 +1,4 @@
 #include <stdint.h>
-#include <M5Atom.h>
-#include "BluetoothSerial.h"
 #include <Wire.h>
 
 #define ADS1115_I2C_ADDRESS         0x48
@@ -55,33 +53,9 @@
 #define ASSERT_AFTER_4_CONVERSION   0b0000000000000000
 #define DISABLE_COMPARATOR          0b0000000000000000
 
-
-#define RED     0
-#define GREEN   1
-#define BLUE    2
-#define CYAN    3
-#define MAGENTA 4
-#define YELLOW  5
-#define WHITE   6
-
-#define ADC_TYPE_INNER  0
-#define ADC_TYPE_I2C    1
-
-
 uint16_t ads1115_read_register(uint8_t register_address);
 void ads1115_write_register(uint8_t register_address, uint16_t register_data);
 char line_buffer[64];
-
-const String BT_NAME = "AtomTestBoard";
-
-const int SAMPLING_FREQ = 200; //[Hz]
-const int BASE_DELAY = 1000000/SAMPLING_FREQ; //[usec]
-const int AD_INPUT = 33;
-
-bool sendFlag = true;
-int adc_type = ADC_TYPE_I2C;
-
-BluetoothSerial SerialBT;
 
 void setupADS1115() {
    Wire.begin(25, 21);
@@ -90,7 +64,7 @@ void setupADS1115() {
    ads1115_write_register(HI_THRESH_REGISTER, 0xA000);
    ads1115_write_register(CONFIG_REGISTER, NO_EFFECT
                                          | P_AIN0_N_GND
-                                         | FSR_2048MV
+                                         | FSR_6144MV
                                          | CONTINUOUS_CONVERSION
                                          | DATA_RATE_250_SPS
                                          | WINDOW_COMPARATE
@@ -103,93 +77,14 @@ void setupADS1115() {
 }
 
 void setup() {
-    M5.begin(true, false, true);
-    SerialBT.begin(BT_NAME);
-    delay(50);
-    SerialBT.println("Start SerialBT");
     setupADS1115();
 }
 
 void loop() {
-    SerialCheck();
-    ButtonCheck();
-    if (sendFlag)
-    {
-        long t = micros();
-        int i = 0;
-        if (adc_type == ADC_TYPE_INNER)
-        {
-            i = analogRead(AD_INPUT);
-        }else if(adc_type == ADC_TYPE_I2C){
-            i = (int)ads1115_read_register(CONVERSION_REGISTER);
-        }
-        SerialBT.println(i);
-        delayMicroseconds(BASE_DELAY-(micros()-t));
-    }
-    updateLED();
-    M5.update();
+    sprintf(line_buffer, "Data: %d", ads1115_read_register(CONVERSION_REGISTER));
+    Serial.println(line_buffer);
+    delay(50);
 }
-
-void SerialCheck(){
-    if(SerialBT.available() > 0) {
-        String data = SerialBT.readString();
-        SerialBT.println(data);
-        if (data == "start\n"){
-            sendFlag = true;
-        } else if (data == "end\n"){
-            sendFlag = false;
-        }
-        if (data == "inner\n"){
-            adc_type=ADC_TYPE_INNER;
-        } else if (data == "i2c\n"){
-            adc_type=ADC_TYPE_I2C;
-        }
-    }
-}
-
-void ButtonCheck(){
-     if (M5.Btn.wasReleased()) {
-        sendFlag = !sendFlag;
-     }
-}
-
-void updateLED(){
-    if (sendFlag){
-        LED(BLUE);
-    } else {
-        LED(RED);
-    }
-}
-
-void LED(int c){
-    switch (c) {
-        case 0:
-            M5.dis.drawpix(0, 0x700000);
-            break;
-        case 1:
-            M5.dis.drawpix(0, 0x007000);
-            break;
-        case 2:
-            M5.dis.drawpix(0, 0x000070);
-            break;
-        case 3:
-            M5.dis.drawpix(0, 0x700070);
-            break;
-        case 4:
-            M5.dis.drawpix(0, 0x007070);
-            break;
-        case 5:
-            M5.dis.drawpix(0, 0x707000);
-            break;
-        case 6:
-            M5.dis.drawpix(0, 0x707070);
-            break;
-        default:
-            M5.dis.drawpix(0, 0x000000);
-            break;
-    }
-}
-
 
 uint16_t ads1115_read_register(uint8_t register_address) {
     uint16_t dat, byte_count;
