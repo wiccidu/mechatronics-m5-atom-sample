@@ -51,9 +51,9 @@
 #define LATCHING_COMPARATOR         0b0000000000000100
 
 #define ASSERT_AFTER_1_CONVERSION   0b0000000000000000
-#define ASSERT_AFTER_2_CONVERSION   0b0000000000000000
-#define ASSERT_AFTER_4_CONVERSION   0b0000000000000000
-#define DISABLE_COMPARATOR          0b0000000000000000
+#define ASSERT_AFTER_2_CONVERSION   0b0000000000000001
+#define ASSERT_AFTER_4_CONVERSION   0b0000000000000010
+#define DISABLE_COMPARATOR          0b0000000000000011
 
 
 #define RED     0
@@ -124,7 +124,11 @@ void loop() {
             i = (int)ads1115_read_register(CONVERSION_REGISTER);
         }
         SerialBT.println(i);
-        delayMicroseconds(BASE_DELAY-(micros()-t));
+        int delaymsec = BASE_DELAY-(micros()-t);
+        if (delaymsec > 0)
+        {
+            delayMicroseconds(delaymsec);
+        }
     }
     updateLED();
     M5.update();

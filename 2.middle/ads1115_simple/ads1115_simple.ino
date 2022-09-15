@@ -49,9 +49,9 @@
 #define LATCHING_COMPARATOR         0b0000000000000100
 
 #define ASSERT_AFTER_1_CONVERSION   0b0000000000000000
-#define ASSERT_AFTER_2_CONVERSION   0b0000000000000000
-#define ASSERT_AFTER_4_CONVERSION   0b0000000000000000
-#define DISABLE_COMPARATOR          0b0000000000000000
+#define ASSERT_AFTER_2_CONVERSION   0b0000000000000001
+#define ASSERT_AFTER_4_CONVERSION   0b0000000000000010
+#define DISABLE_COMPARATOR          0b0000000000000011
 
 uint16_t ads1115_read_register(uint8_t register_address);
 void ads1115_write_register(uint8_t register_address, uint16_t register_data);
@@ -83,7 +83,7 @@ void setup() {
 void loop() {
     sprintf(line_buffer, "Data: %d", ads1115_read_register(CONVERSION_REGISTER));
     Serial.println(line_buffer);
-    delay(50);
+    delay(10);
 }
 
 uint16_t ads1115_read_register(uint8_t register_address) {
