@@ -4,7 +4,7 @@
 
 公式より引用: http://docs.m5stack.com/en/core/atom_lite
 
-<img src="https://user-images.githubusercontent.com/74119351/189160834-7683f33b-a457-4d2a-86dd-bbf54db16e4c.png" width="600px;">
+<img src="https://user-images.githubusercontent.com/74119351/189160834-7683f33b-a457-4d2a-86dd-bbf54db16e4c.png" width="650px;">
 
 
 ### 関数別 機能一覧表
@@ -22,3 +22,13 @@
 |ledcWrite()|○|○|○|○|○|○|○|○|
 
 ※GPIO25と26は、無線を利用していない場合は○ 、無線利用時にはX
+
+
+### 内部回路図
+
+ESP32-PICOとの接続について、通常は意識しないGPIOの詳細
+- GPIO39: トップについているユーザボタン
+- GPIO27: トップについているLED(Neo Pixel)
+- GPIO1,GPIO3: USB TypeC から接続されているSerial
+- GPIO34: GPIO23(G23) から100Ωを介して接続されている
+<img src="https://user-images.githubusercontent.com/74119351/189166451-5370a70b-2647-4a07-8162-e3e6d5111b34.png" width="650px;">
