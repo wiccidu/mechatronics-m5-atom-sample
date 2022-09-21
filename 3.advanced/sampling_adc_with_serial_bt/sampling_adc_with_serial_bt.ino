@@ -214,3 +214,4 @@ void ads1115_write_register(uint8_t register_address, uint16_t register_data){
     Wire.write((register_data >> 0 ) & 0b11111111);
     Wire.endTransmission();
 }
+
