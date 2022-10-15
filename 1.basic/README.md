@@ -13,6 +13,10 @@
   - Atom LiteのNeoPixel（LED）を光らせるサンプル
 - led_for_matrix
   - Atom MatrixのNeoPixel（LED）を光らせるサンプル
+- timer
+  - Timer割り込みで1秒ごとにLチカするサンプル
+- timer_semaphore
+　- Timer割り込みで1秒ごとにLチカするサンプル(セマフォ利用)
 - usb_serial_echo
   - シリアル通信で受け取ったデータをそのまま返却するサンプル
 - wifi_server
