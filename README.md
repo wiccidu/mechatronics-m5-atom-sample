@@ -20,7 +20,7 @@ $ git clone git@github.com:wiccidu/mechatronics-m5-atom-sample.git
 - [3.advanced](https://github.com/wiccidu/mechatronics-m5-atom-sample/tree/main/3.advanced): 特定の回路/用途で利用できるサンプル
 
 ## Arduino IDE 初期設定
-https://www.arduino.cc/en/software からArduino IDEをインストールした後のAtomシリーズを使うための初期設定手順
+https://www.arduino.cc/en/software からArduino IDEをインストールした後にAtomシリーズを使うための初期設定手順
 
 1. ボードマネージャのURL追加
 上部メニューの「ファイル」から「環境設定」をクリックし、「追加のボードマネージャーのURL：」に以下を追加
