@@ -4,6 +4,8 @@ Atomデバイスの使い方やサンプル
 - Atom Lite
 - Atom Echo
 
+ピンアサインのチートシートは[atom-lite-pin-assign.md](https://github.com/wiccidu/mechatronics-m5-atom-sample/blob/main/atom-lite-pin-assign.md)
+
 ## おすすめの使い方
 上部メニューの「ファイル」から「環境設定」にある「スケッチブックの保存場所」のディレクトリにcloneすることで、それ以降「ファイル」-「スケッチブック」に本サンプルが表示されるようになります。
 ```
