@@ -72,6 +72,7 @@ uint16_t ads1115_read_register(uint8_t register_address);
 void ads1115_write_register(uint8_t register_address, uint16_t register_data);
 char line_buffer[64];
 
+// Displayed name during bluetooth pairing
 const String BT_NAME = "AtomTestBoard";
 
 const int SAMPLING_FREQ = 200; //[Hz]
@@ -90,7 +91,7 @@ void setupADS1115() {
    ads1115_write_register(HI_THRESH_REGISTER, 0xA000);
    ads1115_write_register(CONFIG_REGISTER, NO_EFFECT
                                          | P_AIN0_N_GND
-                                         | FSR_2048MV
+                                         | FSR_6144MV
                                          | CONTINUOUS_CONVERSION
                                          | DATA_RATE_250_SPS
                                          | WINDOW_COMPARATE
@@ -214,4 +215,3 @@ void ads1115_write_register(uint8_t register_address, uint16_t register_data){
     Wire.write((register_data >> 0 ) & 0b11111111);
     Wire.endTransmission();
 }
-
